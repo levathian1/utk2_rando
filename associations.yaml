@@ -1,0 +1,337 @@
+operations:
+  - name: OPE101.DAT
+    area_a: 814
+    area_b: 815
+    area_c: 816
+    pos: 986
+    text: 1630
+    rando: False
+  - name: OPE103.DAT
+    area_a: 817
+    area_b: 818
+    area_c: 819
+    pos: 988
+    text: 1631
+    rando: False
+  - name: OPE104.DAT
+    area_a: 820
+    area_b: 821
+    area_c: 822
+    pos: 989
+    text: 1632
+    rando: False
+  - name: OPE105.DAT
+    area_a: 823
+    area_b: 824
+    area_c: 825
+    pos: 990
+    text: 1633
+    rando: False
+  - name: OPE106.DAT
+    area_a: 826
+    area_b: 827
+    area_c: 828
+    pos: 991
+    text: 1634
+    rando: False
+  - name: OPE201.DAT
+    area_a: 829
+    area_b: 830
+    area_c: 831
+    pos: 987
+    text: 1635
+    rando: False
+  - name: OPE202.DAT
+    area_a: 832
+    area_b: 833
+    area_c: 834
+    pos: 992
+    text: 1636
+    rando: True
+  - name: OPE203.DAT
+    area_a: 835
+    area_b: 836
+    area_c: 837
+    pos: 993
+    text: 1637
+    rando: True
+  - name: OPE204.DAT
+    area_a: 838
+    area_b: 839
+    area_c: 840
+    pos: 994
+    text: 1638
+    rando: True
+  - name: OPE205.DAT
+    area_a: 841
+    area_b: 842
+    area_c: 843
+    pos: 995
+    text: 1639
+    rando: True
+  - name: OPE206.DAT
+    area_a: 844
+    area_b: 845
+    area_c: 846
+    pos: 996
+    text: 1640
+    rando: True
+  - name: OPE301.DAT
+    area_a: 847
+    area_b: 848
+    area_c: 849
+    pos: 987
+    text: 1641
+    rando: True
+  - name: OPE302.DAT
+    area_a: 850
+    area_b: 851
+    area_c: 852
+    pos: 997
+    text: 1642
+    rando: True
+  - name: OPE303.DAT
+    area_a: 853
+    area_b: 854
+    area_c: 855
+    pos: 998
+    text: 1643
+    rando: True
+  - name: OPE305.DAT
+    area_a: 856
+    area_b: 857
+    area_c: 858
+    pos: 999
+    text: 1644
+    rando: True
+  - name: OPE306.DAT
+    area_a0: 859
+    area_a1: 860
+    area_a2: 861
+    area_b0: 862
+    area_b1: 863
+    area_b2: 864
+    area_c0: 865
+    area_c1: 866
+    area_c2: 867
+    pos: 1000
+    text: 1645
+    rando: False
+  - name: OPE401.DAT
+    area_a: 868
+    area_b: 869
+    area_c: 870
+    pos: 1001
+    text: 1646
+    rando: True
+  - name: OPE402.DAT
+    area_a: 871
+    area_b: 872
+    area_c: 873
+    pos: 887
+    text: 1647
+    rando: True
+  - name: OPE404.DAT
+    area_a0: 874
+    area_a1: 875
+    area_b0: 876
+    area_b1: 877
+    area_c0: 878
+    area_c1: 879
+    pos: 1002
+    text: 1648
+    rando: False
+  - name: OPE405.DAT
+    area_a0: 880
+    area_a1: 881
+    area_a2: 882
+    area_b0: 883
+    area_b1: 884
+    area_b2: 885
+    area_c0: 886
+    area_c1: 887
+    area_c2: 888
+    pos: 1003
+    text: 1649
+    rando: False
+  - name: OPE407.DAT
+    area_a: 889
+    area_b: 890
+    area_c: 891
+    pos: 1004
+    text: 1650
+    rando: True
+  - name: OPE409.DAT
+    area_a: 892
+    area_b: 893
+    area_c: 894
+    pos: 1005
+    text: 1651
+    rando: True
+  - name: OPE501.DAT
+    area_a: 895
+    area_b: 896
+    area_c: 897
+    pos: 1006
+    text: 1652
+    rando: True
+  - name: OPE502.DAT
+    area_a: 898
+    area_b: 899
+    area_c: 900
+    pos: 1007
+    text: 1653
+    rando: True
+  - name: OPE504.DAT
+    area_a: 901
+    area_b: 902
+    area_c: 903
+    pos: 1008
+    text: 1654
+    rando: True
+  - name: OPE505.DAT
+    area_a: 904
+    area_b: 905
+    area_c: 906
+    pos: 1009
+    text: 1655
+    rando: True
+  - name: OPE506.DAT
+    area_a: 907
+    area_b: 908
+    area_c: 909
+    pos: 887
+    text: 1656
+    rando: True
+  - name: OPE601.DAT
+    area_a: 910
+    area_b: 911
+    area_c: 912
+    pos: 1010
+    text: 1657
+    rando: True
+  - name: OPE603.DAT
+    area_a: 913
+    area_b: 914
+    area_c: 915
+    pos: 1011
+    text: 1658
+    rando: True
+  - name: OPE604.DAT
+    area_a: 916
+    area_b: 917
+    area_c: 918
+    pos: 1012
+    text: 1659
+    rando: True
+  - name: OPE606.DAT
+    area_a: 919
+    area_b: 920
+    area_c: 921
+    pos: 1013
+    text: 1660
+    rando: True
+  - name: OPE607.DAT
+    area_a0: 922
+    area_a1: 923
+    area_a2: 924
+    area_b0: 925
+    area_b1: 926
+    area_b2: 927
+    area_c0: 928
+    area_c1: 929
+    area_c2: 930
+    pos: 1014
+    text: 1661
+    rando: False
+  - name: OPE701.DAT
+    area_a: 931
+    area_b: 932
+    area_c: 933
+    pos: 1015
+    text: 1662
+    rando: True
+  - name: OPE703.DAT
+    area_a: 934
+    area_b: 935
+    area_c: 936
+    pos: 1016
+    text: 1663
+    rando: True
+  - name: OPE704.DAT
+    area_a: 937
+    area_b: 938
+    area_c: 939
+    pos: 1017
+    text: 1664
+    rando: True
+  - name: OPE705.DAT
+    area_a: 940
+    area_b: 941
+    area_c: 942
+    pos: 1018
+    text: 1665
+    rando: True
+  - name: OPE706.DAT
+    area_a: 943
+    area_b: 944
+    area_c: 945
+    pos: 1019
+    text: 1666
+    rando: True
+  - name: OPE707.DAT
+    area_a: 946
+    area_b: 947
+    area_c: 948
+    pos: 1020
+    text: 1667
+    rando: True
+  - name: OPE801.DAT
+    area_a: 949
+    area_b: 950
+    area_c: 951
+    pos: 1021
+    text: 1668
+    rando: True
+  - name: OPE802.DAT
+    area_a: 952
+    area_b: 953
+    area_c: 954
+    pos: 1022
+    text: 1669
+    rando: True
+  - name: OPE803.DAT
+    area_a: 955
+    area_b: 956
+    area_c: 957
+    pos: 1023
+    text: 1670
+    rando: True
+  - name: OPE804.DAT
+    area_a: 958
+    area_b: 959
+    area_c: 960
+    pos: 1024
+    text: 1671
+    rando: True
+  - name: OPE805.DAT
+    area_a: 961
+    area_b: 962
+    area_c: 963
+    pos: 1025
+    text: 1672
+    rando: True
+  - name: OPE806.DAT
+    area_a: 964
+    area_b: 965
+    area_c: 966
+    pos: 1026
+    text: 1673
+    rando: True
+  - name: OPE807.DAT
+    area_a: 967
+    area_b: 968
+    area_c: 969
+    pos: 1027
+    text: 1674
+    rando: True
