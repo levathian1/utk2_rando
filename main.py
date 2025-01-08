@@ -1,10 +1,15 @@
 import ndspy.rom
 import ndspy.fnt as fnt
 from yaml_parsing import load_ops_rando, load_ops
+
 import random
 import sys
+from pathlib import Path
 
 rom_file = None
+rando_log = 'rando.txt'
+
+open('rando.txt', 'w').close()
 
 if (len(sys.argv) > 1):
     rom_file = sys.argv[1]
@@ -30,6 +35,11 @@ def get_files(rom):
     """
     return rom.files
 
+def append_order(file, op1, op2):
+    with open("rando.txt", "a") as f:
+        f.write(f"original: {op1} | new: {op2} \noriginal: {op2} | new: {op1} \n")
+
+
 def load_op_list(op_list = operation_list):
     op = list()
     with open(op_list, "r") as f:
@@ -49,11 +59,18 @@ def operation_list_rando(operations):
     return rando
 
 def op_randomiser(rando, operations, associations, rom):
-    for op in rando:
-        # print(op, operations[0])
-        swap_operations(rom, op, operations[0], associations)
-        rando.pop(0)
-        operations.pop(0)
+    for op in rando.copy():
+        if op in (rando and operations):
+            # print(op, operations[0])
+            print(operations[0], op)
+            print(operations, rando)
+            swap_operations(rom, op, operations[0], associations)
+            rando_pop = rando.pop(0)
+            op_pop = operations.pop(0)
+            if(rando_pop != op_pop):
+                operations.remove(rando_pop)
+                rando.remove(op_pop)
+
 
 def get_key(associations, op):
     for i in range(0, len(associations['operations'])):
@@ -96,6 +113,8 @@ def swap_operations(rom, op1, op2, associations):
     rom.setFileByName(rom.filenames.filenameOf(associations['operations'][op1_key]['text']), rom.files[associations['operations'][op2_key]['text']])
     rom.setFileByName(rom.filenames.filenameOf(associations['operations'][op2_key]['text']), old_text)
 
+    append_order(rando_log, op1, op2)
+
 def save_rando_list(operations, rando):
     with open("rando.txt", "w") as f:
         for i in range(0, len(rando)):
@@ -114,11 +133,8 @@ rom = ndspy.rom.NintendoDSRom.fromFile(rom_file)
 associations = load_ops()
 operations = load_ops_rando()
 rando = operation_list_rando(operations)
-print(len(operations) == len(rando))
-save_rando_list(operations, rando)
+
 op_randomiser(rando, operations, associations, rom)
+
 fnt.save(rom.filenames)
-
-# load_op_list()
-
 rom.saveToFile('utk2_rando.nds')
