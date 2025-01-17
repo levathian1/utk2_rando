@@ -1,2 +1,10 @@
 door breaks
 pempti breaks (no max laser)
+puzzle breaks replaced op as well
+2-3 crashes when replacing another op
+alethia didn't have ht
+4-1 ht doesn't actually work
+7-3 loading fails
+2-4 burn spawn + membrane injection locations are messed up when changed with another op
+4-2 when replaced with another op breaks (ht activates, but no redos)
+ht effect on 3-3, 4-1
