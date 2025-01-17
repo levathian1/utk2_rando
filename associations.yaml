@@ -230,7 +230,7 @@ operations:
     area_c: 921
     pos: 1013
     text: 1660
-    rando: 2
+    rando: 3
   - name: OPE607.DAT
     area_a0: 922
     area_a1: 923
@@ -306,7 +306,7 @@ operations:
     area_c: 957
     pos: 1023
     text: 1670
-    rando: 2
+    rando: 3
   - name: OPE804.DAT
     area_a: 958
     area_b: 959
