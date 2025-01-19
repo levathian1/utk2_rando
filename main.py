@@ -1,6 +1,6 @@
 import ndspy.rom
 import ndspy.fnt as fnt
-from yaml_parsing import load_ops_rando, load_ops
+from yaml_parsing import load_ops_rando, load_ops, rando_levels
 
 import random
 import sys
@@ -27,7 +27,10 @@ operation_list = "operations.txt"
 # Loading files to swap around
 # Can probably just have a loadable file with relevant filenames and load stuff around that
 
-# set randomiser flags in association file
+# Randomiser flag pool: 
+#   - 1: does not have active ht flag or flag only becomes available later in the op
+#   - 2: ht is available at start of op
+#   - 3: op is muliop (ht distinction not done for now)
 
 def get_files(rom):
     """
@@ -54,23 +57,50 @@ def switch_operation_data(rom, op1, op2):
     rom.setFileByName(rom.filenames.filenameOf(op1), op2_content)
     rom.setFileByName(rom.filenames.filenameOf(op2), op1_content)
 
-def operation_list_rando(operations):
-    rando = sorted(operations, key=lambda x: random.random())
-    return rando
+def operation_list_rando(no_ht, ht, multiop, seed = random.randint(0, 10000)):
+    random.seed(seed)
+    no_ht = sorted(no_ht, key=lambda x: random.random())
+    ht = sorted(ht, key=lambda x: random.random())
+    multiop = sorted(multiop, key=lambda x: random.random())
+    return no_ht, ht, multiop
 
-def op_randomiser(rando, operations, associations, rom):
-    for op in rando.copy():
-        if op in (rando and operations):
+def op_randomiser(no_ht, ht, multiop, no_ht_ori, ht_ori, multiop_ori, associations, rom):
+    # TODO: cleaner implementation when sure this is properly working (no more millions of loops)
+    for op in no_ht.copy():
+        if op in (no_ht and no_ht_ori):
             # print(op, operations[0])
-            print(operations[0], op)
-            print(operations, rando)
-            swap_operations(rom, op, operations[0], associations)
-            rando_pop = rando.pop(0)
-            op_pop = operations.pop(0)
+            print(no_ht_ori[0], op)
+            print(no_ht_ori, no_ht)
+            swap_operations(rom, op, no_ht_ori[0], associations)
+            rando_pop = no_ht.pop(0)
+            op_pop = no_ht_ori.pop(0)
             if(rando_pop != op_pop):
-                operations.remove(rando_pop)
-                rando.remove(op_pop)
+                no_ht_ori.remove(rando_pop)
+                no_ht.remove(op_pop)
 
+    for op in ht.copy():
+        if op in (ht and ht_ori):
+            # print(op, operations[0])
+            print(ht_ori[0], op)
+            print(ht_ori, no_ht)
+            swap_operations(rom, op, ht_ori[0], associations)
+            rando_pop = ht.pop(0)
+            op_pop = ht_ori.pop(0)
+            if(rando_pop != op_pop):
+                ht_ori.remove(rando_pop)
+                ht.remove(op_pop)
+    
+    # for op in multiop.copy():
+    #     if op in (multiop and multiop_ori):
+    #         # print(op, operations[0])
+    #         print(multiop_ori[0], op)
+    #         print(multiop_ori, multiop)
+    #         swap_operations(rom, op, multiop_ori[0], associations)
+    #         rando_pop = multiop.pop(0)
+    #         op_pop = multiop_ori.pop(0)
+    #         if(rando_pop != op_pop):
+    #             multiop_ori.remove(rando_pop)
+    #             multiop.remove(op_pop)
 
 def get_key(associations, op):
     for i in range(0, len(associations['operations'])):
@@ -84,6 +114,7 @@ def swap_operations(rom, op1, op2, associations):
     header_text = "operation/msg/"
     op1_key = get_key(associations, op1)
     op2_key = get_key(associations, op2)
+    print(op1)
     print(associations['operations'][op1_key]['area_a'])
     op1_id = rom.filenames.idOf(header_data + op1)
     op2_id = rom.filenames.idOf(header_data + op2)
@@ -131,10 +162,12 @@ rom = ndspy.rom.NintendoDSRom.fromFile(rom_file)
 # switch_operation_data(rom, 1668, 1674)
 # swap_operations(rom, 1, 1)
 associations = load_ops()
-operations = load_ops_rando()
-rando = operation_list_rando(operations)
+# operations = load_ops_rando()
+no_ht_ori, ht_ori, multiop_ori = rando_levels()
+print(ht_ori)
+no_ht, ht, multiop = operation_list_rando(no_ht_ori, ht_ori, multiop_ori)
 
-op_randomiser(rando, operations, associations, rom)
+op_randomiser(no_ht, ht, multiop, no_ht_ori, ht_ori, multiop_ori, associations, rom)
 
 fnt.save(rom.filenames)
 rom.saveToFile('utk2_rando.nds')
