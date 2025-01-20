@@ -1,6 +1,6 @@
 import yaml
 
-# print(dsata['operations']
+# TODO: rearange yaml organisation to clean up reading process
 
 def load_ops():
     file = "associations.yaml"
