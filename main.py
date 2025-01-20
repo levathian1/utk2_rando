@@ -8,16 +8,16 @@ from pathlib import Path
 # Can probably just have a loadable file with relevant filenames and load stuff around that
 # TODO: pydoc 
 
+# TODO: flag usage in argv to allow inclusion of only seed without rom name
+
 def main():
-# TODO: this should check value in argv[1] not just assign to avoid problems down the road
-    if (len(sys.argv) > 1):
+    if (len(sys.argv) > 1 and isinstance(sys.argv, str)):
         rom_file = sys.argv[1]
     else:   
         rom_file = "utk2.nds"
 
-# TODO: this should check value in argv[2] not just assign to avoid problems down the road
-    if(len(sys.argv) > 2):
-        rom = ndspy.rom.NintendoDSRom.fromFile(rom_file, sys.argv[2])
+    if(len(sys.argv) > 2 and isinstance(sys.argv, (int or str))):
+        rom = ndspy.rom.NintendoDSRom.fromFile(rom_file, sys.argv[2]) 
     else:
         rom = ndspy.rom.NintendoDSRom.fromFile(rom_file)
     
