@@ -9,6 +9,11 @@ def load_ops():
     return data
 
 def rando_levels():
+    """_summary_: Retrieve randomiser flagged operations in association.yaml and sort into corresponding list
+
+    Returns:
+        _type_: List: 3 lists containing each type of randomiser flagged operation as defined in operation_classification.py
+    """
     no_ht, ht, multiop = list(), list(), list()
     file = "associations.yaml"
     with open(file) as f:
@@ -36,16 +41,3 @@ def rando_levels():
             
     return no_ht, ht, multiop
             
-
-
-def load_ops_rando():
-    file = "associations.yaml"
-    randomise = list()
-
-    with open(file) as f:
-        data = yaml.safe_load(f)
-    for i in range(0, len(data['operations'])):
-        # print(data['operations'][i]['rando'], "\n")
-        if data['operations'][i]['rando'] == True:
-            randomise.append(data['operations'][i]['name'])
-    return randomise

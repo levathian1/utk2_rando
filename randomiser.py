@@ -2,7 +2,7 @@ import ndspy.rom
 import ndspy.fnt as fnt
 import random, secrets
 from operation_classification import OpClassification
-from yaml_parsing import load_ops_rando, load_ops, rando_levels
+from yaml_parsing import load_ops, rando_levels
 from info_writer import InfoWriter
 
 # To fully switch operation stuff need:
@@ -15,7 +15,15 @@ from info_writer import InfoWriter
 # TODO: remove loop in loop iterations somehow
 
 class Randomiser():
+    """_summary_: Class handling randomising operations
+    """
     def __init__(self, rom, seed = None):
+        """_summary_: Initialises Randomiser class
+
+        Args:
+            rom (_type_): the rom to randomise
+            seed (_type_, optional): Custom seed to use when swapping operations. Defaults to None.
+        """
         self.seed = random.seed(seed or secrets.choice(range(0, 100000)))
         self.rom = rom
         self.associations = load_ops()
@@ -25,19 +33,19 @@ class Randomiser():
         self.infoWriter = InfoWriter()
 
     def operation_list_rando(self):
+        """_summary_: Generates randomised list
+
+        Returns:
+            _type_: List: Returns 3 randomised sorted by criteria defined in operation_classification.py
+        """
         no_ht_op_list = sorted(self.NO_HT_ori, key=lambda x: random.random())
         ht_op_list = sorted(self.HT_ori, key=lambda x: random.random())
         multiop_op_list = sorted(self.MULTI_ori, key=lambda x: random.random())
         return no_ht_op_list, ht_op_list, multiop_op_list
-    
-    def switch_operation_data(self, op1, op2):
-        op1_content = self.rom.files[op1]
-        op2_content = self.rom.files[op2]
-
-        self.rom.setFileByName(self.rom.filenames.filenameOf(op1), op2_content)
-        self.rom.setFileByName(self.rom.filenames.filenameOf(op2), op1_content)
 
     def op_randomiser(self):
+        """_summary_: Main randomiser function, reads and iterates over randomised lists.
+        """
     # TODO: cleaner implementation when sure this is properly working (no more millions of loops and checks)
         for op in self.NO_HT_list.copy():
             if op in (self.NO_HT_list):
@@ -63,15 +71,28 @@ class Randomiser():
                     self.HT_list.remove(op_pop)
 
     def get_key(self, op):
+        """_summary_: Temporary function to retrieve indices of specified operation
+
+        Args:
+            op (_type_): The operation to retrieve in associations.yaml
+
+        Returns:
+            _type_: int: The value of the index in associations.yaml
+        """
         # TODO: this really shouldn't exist here, pass off to reader 
         for i in range(0, len(self.associations['operations'])):
             if self.associations['operations'][i]['name'] == op:
                 return i
 
     def swap_operations(self, op1, op2):
+        """_summary_: Operation swapping function, logs result to log file defined in info_writer.py
+
+        Args:
+            op1 (_type_): First operation to be swapped
+            op2 (_type_): Second operation to be swapped
+        """
+
         header_data = "operation/data/"
-        header_area = "operation/hit/"
-        header_text = "operation/msg/"
 
         op1_key = self.get_key(op1)
         op2_key = self.get_key(op2)
