@@ -1,8 +1,8 @@
 # Installation & running
-Install the following python package: ```ndspy``` 
+Install the following python packages: ```ndspy, pyyaml``` 
 using a python package manager.
 
-Documentation for the package is available [here](https://ndspy.readthedocs.io/en/latest/).
+Documentation for the NDSpy package is available [here](https://ndspy.readthedocs.io/en/latest/).
 
 
 Run using the following command: 

@@ -6,7 +6,7 @@ class InfoWriter:
 
     def append_order(self, op1, op2):
         with open(self.log_file, "a") as f:
-            f.write(f"original: {op1} | new: {op2} \noriginal: {op2} | new: {op1} \n")
+            f.write(f"original: {op1} | new: {op2}\n")
 
 
 if __name__ == "__main__":
